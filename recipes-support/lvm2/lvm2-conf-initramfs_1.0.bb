@@ -7,6 +7,9 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 SRC_URI = "file://lvm.conf"
 
 inherit allarch
+inherit multilib_script
+
+MULTILIB_SCRIPTS = "${PN}:${sysconfdir}/lvm/lvm.conf"
 
 do_install() {
     install -d ${D}${sysconfdir}
