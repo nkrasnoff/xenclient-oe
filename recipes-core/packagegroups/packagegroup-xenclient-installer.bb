@@ -66,8 +66,12 @@ RDEPENDS_${PN} = " \
     xen-tools-console \
     xen-efi \
     xen-tools-flask-tools \
-    xen-hypervisor \
+    xen \
+    xen-tools-libxenguest \
+    xen-tools-libxenlight \
+    xen-tools-libxenstat \
+    xen-tools-libxlutil \
     xen-tools-xenstat \
-    xen-xl \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'blktap2', 'xen-blktap xen-libblktapctl xen-libvhd', 'blktap3', d)} \
+    xen-tools-xl \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'blktap2', 'xen-tools-blktap xen-tools-libblktapctl xen-tools-libvhd', 'xen-tools-blktap3', d)} \
 "
