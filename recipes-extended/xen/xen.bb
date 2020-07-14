@@ -116,8 +116,6 @@ pkg_prerm_${PN}-xenstored-c () {
     update-alternatives --remove xenstored-initscript xenstored.${PN}-xenstored-c
 }
 
-addtask stubs after do_configure before do_compile
-
 do_compile() {
     unset CFLAGS
 
