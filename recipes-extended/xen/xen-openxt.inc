@@ -11,7 +11,7 @@ EXTRA_OECONF_remove = " \
     --disable-pv-grub \
     --disable-xenstore-stubdom \
     --disable-ocamltools \
-    --with-initddir=${INIT_D_DIR} \
+    --with-initddir=${sysconfdir}/init.d \
     --with-sysconfig-leaf-dir=default \
     --with-system-qemu=/usr/bin/qemu-system-i386 \
     --disable-qemu-traditional \
