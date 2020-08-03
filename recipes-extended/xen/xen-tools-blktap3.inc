@@ -48,13 +48,13 @@ do_configure_append() {
     # perform a second round of autotools configuration here.
     # See autotools.bbclass for reference for this.
     bbnote "Creating configure script for blktap3"
-    cd "${B}/tools/blktap3"
+    cd "${S}/tools/blktap3"
     # libtoolize:require_aux_dir looks for a file called install-sh
-    touch "${B}/tools/blktap3/install-sh"
-    touch "${B}/tools/blktap3/EXTRAVERSION"
+    touch "${S}/tools/blktap3/install-sh"
+    touch "${S}/tools/blktap3/EXTRAVERSION"
     ACLOCAL="aclocal --system-acdir=${ACLOCALDIR}/"
     acpaths=
-    for i in `find ${B}/tools/blktap3 -ignore_readdir_race -maxdepth 2 -name \*.m4|grep -v 'aclocal.m4'| \
+    for i in `find ${S}/tools/blktap3 -ignore_readdir_race -maxdepth 2 -name \*.m4|grep -v 'aclocal.m4'| \
         grep -v 'acinclude.m4' | sed -e 's,\(.*/\).*$,\1,'|sort -u`; do
         acpaths="$acpaths -I $i"
     done
@@ -83,22 +83,22 @@ do_configure_append() {
                           -I${S}/tools/libxc/include \
                           -I${S}/tools/xenstore/include \
                           " \
-        LDFLAGS="${LDFLAGS} -L${B}/tools/libxc \
-                            -L${B}/tools/libs/toollog \
-                            -L${B}/tools/xenstore \
-                            -Wl,-rpath-link=${B}/tools/libxc \
-                            -Wl,-rpath-link=${B}/tools/libs/call \
-                            -Wl,-rpath-link=${B}/tools/libs/evtchn \
-                            -Wl,-rpath-link=${B}/tools/libs/foreignmemory \
-                            -Wl,-rpath-link=${B}/tools/libs/devicemodel \
-                            -Wl,-rpath-link=${B}/tools/libs/gnttab \
-                            -Wl,-rpath-link=${B}/tools/libs/toolcore \
-                            -Wl,-rpath-link=${B}/tools/libs/toollog \
-                            -Wl,-rpath-link=${B}/tools/xenstore \
+        LDFLAGS="${LDFLAGS} -L${S}/tools/libxc \
+                            -L${S}/tools/libs/toollog \
+                            -L${S}/tools/xenstore \
+                            -Wl,-rpath-link=${S}/tools/libxc \
+                            -Wl,-rpath-link=${S}/tools/libs/call \
+                            -Wl,-rpath-link=${S}/tools/libs/evtchn \
+                            -Wl,-rpath-link=${S}/tools/libs/foreignmemory \
+                            -Wl,-rpath-link=${S}/tools/libs/devicemodel \
+                            -Wl,-rpath-link=${S}/tools/libs/gnttab \
+                            -Wl,-rpath-link=${S}/tools/libs/toolcore \
+                            -Wl,-rpath-link=${S}/tools/libs/toollog \
+                            -Wl,-rpath-link=${S}/tools/xenstore \
                             "
     then
         bbnote "The following config.log files may provide further information."
-        bbnote `find ${B}/tools/blktap3 -ignore_readdir_race -type f -name config.log`
+        bbnote `find ${S}/tools/blktap3 -ignore_readdir_race -type f -name config.log`
         bbfatal_log "configure failed"
     fi
 }
