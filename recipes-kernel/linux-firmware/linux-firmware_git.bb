@@ -160,6 +160,9 @@ do_install() {
 	# Remove pointless bash script
 	rm ${D}/lib/firmware/configure
 
+        # Remove python script used to check the WHENCE file
+        rm ${D}/lib/firmware/check_whence.py
+
 	# Libertas sd8686
 	ln -sf libertas/sd8686_v9.bin ${D}/lib/firmware/sd8686.bin
 	ln -sf libertas/sd8686_v9_helper.bin ${D}/lib/firmware/sd8686_helper.bin
