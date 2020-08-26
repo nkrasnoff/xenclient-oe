@@ -38,10 +38,11 @@
  		_set_ip_state (self, AF_INET, NM_DEVICE_IP_STATE_DONE);
  		check_ip_state (self, FALSE, TRUE);
  		return TRUE;
-@@ -14877,6 +14879,7 @@ _set_state_full (NMDevice *self,
+@@ -14877,7 +14879,8 @@ _set_state_full (NMDevice *self,
  	gboolean no_firmware = FALSE;
  	NMSettingsConnection *sett_conn;
  	NMSettingSriov *s_sriov;
+	gboolean concheck_now;
 +	char *iface = NULL;
  
  	g_return_if_fail (NM_IS_DEVICE (self));
