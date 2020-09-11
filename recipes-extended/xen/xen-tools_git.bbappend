@@ -9,4 +9,6 @@ require xen-common.inc
 require ${@bb.utils.contains('DISTRO_FEATURES', 'blktap2', 'xen-tools-blktap2.inc', 'xen-tools-blktap3.inc', d)}
 require xen-tools-openxt.inc
 
+B = "${S}"
+
 DEFAULT_PREFERENCE = "1"
